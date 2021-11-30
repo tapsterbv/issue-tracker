@@ -3,5 +3,7 @@ Via deze publieke issue-tracker is het mogelijk om feature requests, bugs et cet
 
 ## Lees meer
 https://docs.tapster.nl
+
 https://status.tapster.nl
+
 https://tapster.nl
