@@ -4,6 +4,7 @@ about: Via dit formulier geef je een bug melding op.
 title: ''
 labels: ''
 assignees: ''
+projects: ["Issue tracker"]
 
 ---
 
