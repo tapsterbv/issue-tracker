@@ -37,3 +37,11 @@ jobs:
           BODY: >
             Dit issue is verplaatst naar de backend.  
             :sparkles: Het gaat dus opgepakt worden! :sparkles:
+  anytime:
+    if: github.event.label.name == 'backend' || github.event.label.name == 'frontend'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Move issue to backend
+        run: echo "issue=${{ github.event.issue }}"
