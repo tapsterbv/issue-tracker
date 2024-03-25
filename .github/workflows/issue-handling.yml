@@ -14,9 +14,7 @@ jobs:
       issues: write
     steps:
       - name: Move issue to frontend
-        run: |
-          gh issue comment "$NUMBER" --body "$BODY"
-          gh issue transfer "$NUMBER" https://github.com/tapsterbv/bambooims-frontend
+        run: gh issue transfer "$NUMBER" https://github.com/tapsterbv/bambooims-frontend
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
