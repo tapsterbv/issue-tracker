@@ -1,0 +1,39 @@
+name: Issue handling
+on:
+  issues:
+    types:
+      - opened
+      - labeled
+      - edited
+      - unlabeled
+jobs:
+  frontend:
+    if: github.event.label.name == 'frontend'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Move issue to frontend
+        run: gh issue comment "$NUMBER" --body "$BODY"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number }}
+          BODY: >
+            Dit issue is verplaatst naar de frontend.
+            :sparkles: Het gaat dus opgepakt worden! :sparkles:
+  backend:
+    if: github.event.label.name == 'backend'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Move issue to backend
+        run: gh issue comment "$NUMBER" --body "$BODY"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number }}
+          BODY: >
+            Dit issue is verplaatst naar de backend.
+            :sparkles: Het gaat dus opgepakt worden! :sparkles:
