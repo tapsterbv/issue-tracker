@@ -20,7 +20,7 @@ jobs:
           GH_REPO: ${{ github.repository }}
           NUMBER: ${{ github.event.issue.number }}
           BODY: >
-            Dit issue is verplaatst naar de frontend.
+            Dit issue is verplaatst naar de frontend.\n
             :sparkles: Het gaat dus opgepakt worden! :sparkles:
   backend:
     if: github.event.label.name == 'backend'
