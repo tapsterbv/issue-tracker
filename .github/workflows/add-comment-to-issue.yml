@@ -3,6 +3,8 @@ on:
   issues:
     types:
       - labeled
+      - edited
+      - unlabeled
 jobs:
   add-comment-to-issue:
     if: github.event.label.name == 'frontend'
