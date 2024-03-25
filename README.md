@@ -33,14 +33,12 @@ Kies vervolgens een gebruikersnaam. Gebruik hier je voornaam in combinatie met "
 
 Volg hierna de instructies op je scherm. Je kan bepaalde vragen overslaan met 'Skip personalization'. Je Github account is nu aangemaakt.
 
-## Opzetten Github
+## Makkelijk werken met Github
 Om makkelijk aan het werk te kunnen zijn er een aantal tips, namelijk:
 
-1. Watch het Issue tracker project\
-Door Tapster te volgen
+1. Watch het Issue tracker project. Door Tapster te volgen
 
-2. Voeg Github toe aan je bookmarkbalk\
-Door in je browser Github toe te voegen aan je bookmarkerbalk, kan je wanneer je een melding hebt deze snel melden.
+2. Voeg Github toe aan je bookmarkbalk. Door in je browser Github toe te voegen aan je bookmarkerbalk, kan je wanneer je een melding hebt deze snel melden.
 
 --Deze wordt later aangevuld.
 
