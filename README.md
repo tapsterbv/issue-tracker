@@ -41,10 +41,6 @@ Door in je browser Github toe te voegen aan je bookmarkerbalk, kan je wanneer je
 
 --Deze wordt later aangevuld.
 
-\
-\
-\
-
 ## Bug Melden 🐞
 Waarschijnlijk de melding die je het meeste gaat maken is de bug.\
 Even in het kort, een bug is een fout in een applicatie/website waardoor het zijn functie niet volgens specificaties vervult.
