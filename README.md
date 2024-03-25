@@ -22,11 +22,13 @@ Vul hier het Tapster e-mailadres in:
 ![image](https://github.com/tapsterbv/issue-tracker/assets/59312427/3ac2ca01-d626-47a1-9d71-69b0d8a5c169)
 
 Druk op volgende. Maak een wachtwoord aan.
+
 ![image](https://github.com/tapsterbv/issue-tracker/assets/59312427/767bc234-67fa-42f5-8d90-edcd097bf5d0)
 
 
 Hierna wordt moet je een gebruikersnaam invullen. Het is handig als deze je eigen naam bevat, zodat iedereen snel kan zien wie iets gemeld heeft.
 Kies vervolgens een gebruikersnaam. Gebruik hier je voornaam in combinatie met "-tapster". Bijvoorbeeld thomas-tapster.
+
 ![image](https://github.com/tapsterbv/issue-tracker/assets/59312427/a61af429-2ff2-4cc2-afb8-0d8f883839ec)
 
 Volg hierna de instructies op je scherm. Je kan bepaalde vragen overslaan met 'Skip personalization'. Je Github account is nu aangemaakt.
@@ -47,16 +49,19 @@ Waarschijnlijk de melding die je het meeste gaat maken is de bug.\
 Even in het kort, een bug is een fout in een applicatie/website waardoor het zijn functie niet volgens specificaties vervult.
 
 Om een melding te maken begin je op de projectpagina van de <a href="https://github.com/tapsterbv/issue-tracker">Issue Tracker</a>.\
-Hier klik je links bovenin op het tabje 'Issue':\
+Hier klik je links bovenin op het tabje 'Issue':
+
 ![image](https://github.com/tapsterbv/issue-tracker/assets/59312427/9ad0be5a-526b-4d99-98ba-95eb24ed3b2c)
 
-Daar druk je op de groene knop 'New issue':\
+Daar druk je op de groene knop 'New issue':
+
 ![image](https://github.com/tapsterbv/issue-tracker/assets/59312427/99e2ce1d-e6d6-462c-97cd-78b9cfe4f6eb)
 
-Vervolgens selecteer je de template van de bug:\
+Vervolgens selecteer je de template van de bug:
 ![image](https://github.com/tapsterbv/issue-tracker/assets/59312427/37db53b5-76ed-496c-920b-bf3e0bfdc2cc)
 
-Dan kom je uit op de pagina waar je de bug moet gaan omschrijven:\
+Dan kom je uit op de pagina waar je de bug moet gaan omschrijven:
+
 ![image](https://github.com/tapsterbv/issue-tracker/assets/59312427/df10305e-dc99-4291-9604-a956aa410440)
 
 1. Titel\
