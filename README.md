@@ -3,8 +3,8 @@ Welkom bij de issue tracker van Tapster.\
 Dit is de plek waar problemen in de applicatie (bugs), verbeteringen en beveiligingsincidenten gemeld kunnen worden.\
 Door hier je meldingen te plaatsen, kan het ontwikkelteam de taken oppakken en verdelen.
 
-** BELANGRIJK: Bij het maken van een melding mag er geen informatie zijn die te herlijden is naar een organisatie of persoon.
-** Voor screenshots, gebruik de demo omgeving van <a href="https://demo.digidagbesteding.nl/">Digidagbesteding</a> of <a href="https://demo.timvantapster.nl/">Tim van Tapster</a>
+**BELANGRIJK: Bij het maken van een melding mag er geen informatie zijn die te herlijden is naar een organisatie of persoon.**\
+**Voor screenshots, gebruik de demo omgeving van <a href="https://demo.digidagbesteding.nl/">Digidagbesteding</a> of <a href="https://demo.timvantapster.nl/">Tim van Tapster</a>.**
 
 ## Inhoudsopgave
 1. [Account aanmaken](#account-aanmaken)
