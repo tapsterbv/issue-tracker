@@ -18,6 +18,7 @@ Om een melding te kunnen maken heb je een account nodig. Hiervoor gebruik je je 
 Ga eerst naar de <a href="https://github.com/signup?source=login">aanmeldpagina</a> van GitHub.
 
 Vul hier het Tapster e-mailadres in:
+
 ![image](https://github.com/tapsterbv/issue-tracker/assets/59312427/3ac2ca01-d626-47a1-9d71-69b0d8a5c169)
 
 Druk op volgende. Maak een wachtwoord aan.
