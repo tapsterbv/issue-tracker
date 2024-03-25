@@ -15,11 +15,3 @@ projects: ["orgs/tapsterbv/projects/4"]
 ## **Stappen om te reproduceren**
 
 ## **Voeg screenshots toe**
-
-## **Technische informatie**
-
-- URL:
-- Browser:
-- Device (laptop, tablet, smartphone):
-
-### **Overige info**
