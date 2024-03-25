@@ -10,7 +10,6 @@ projects: ["orgs/tapsterbv/projects/4"]
 
 # **🐞 Bug Report**
 
-## BELANGRIJK 
 **Bij het maken van een melding mag er geen informatie zijn die te herleiden is naar een organisatie of persoon. Voor screenshots, gebruik de demo-omgeving van Digidagbesteding of Tim van Tapster.**
 
 ## **Omschrijf het probleem**
