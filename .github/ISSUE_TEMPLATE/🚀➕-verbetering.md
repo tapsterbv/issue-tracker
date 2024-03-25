@@ -10,9 +10,3 @@ assignees: ''
 # **🚀 Verbetering**
 
 ## **Omschrijf de verbetering**
-
-## **Gegevens**
-
-URL:
-
-### **Overige info**
