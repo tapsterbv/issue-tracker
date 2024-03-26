@@ -17,10 +17,5 @@ jobs:
         uses: actions/github-script@v7 
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            github.rest.issues.create({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: "Op deze manier een comment aanmaken?"
-            })
+          script: gh issue transfer "$NUMBER" tapsterbv/bambooims-frontend
+
