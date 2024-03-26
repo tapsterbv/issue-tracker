@@ -56,23 +56,13 @@ Daar druk je op de groene knop 'New issue':
 ![image](https://github.com/tapsterbv/issue-tracker/assets/59312427/99e2ce1d-e6d6-462c-97cd-78b9cfe4f6eb)
 
 Vervolgens selecteer je de template van de bug:
+
 ![image](https://github.com/tapsterbv/issue-tracker/assets/59312427/37db53b5-76ed-496c-920b-bf3e0bfdc2cc)
 
 Dan kom je uit op de pagina waar je de bug moet gaan omschrijven:
 
 ![image](https://github.com/tapsterbv/issue-tracker/assets/59312427/df10305e-dc99-4291-9604-a956aa410440)
 
-1. Titel\
-Een titel in een paar woorden toch duidelijk maken wat het probleem is. Zoals bijvoorbeeld: 'Verkeerde teller in menu' en 'Tekst loopt uit de tegel'. Het hoeft niet te uitgebreid, dit kan namelijk bij de volgende stap.
-2. Beschrijving van het probleem\
-Bij de beschrijving, kun je op een uitgebreidere manier uitleggen wat het probleem is.
-3. Stappen voor het reproduceren (Optioneel)\
-Bij de stappen voor het reproduceren kan extra toelichting gegeven worden. Dit kan ingevuld worden wanneer er eerst een aantal stappen moeten worden uitgevoerd worden, voor je een foutmelding krijgt.
-4. Screenshots (Optioneel)\
-**BELANGRIJK: Bij het maken van een melding mag er geen informatie zijn die te herleiden is naar een organisatie of persoon.**\
-**Voor screenshots, gebruik de demo-omgeving van <a href="https://demo.digidagbesteding.nl/">Digidagbesteding</a> of <a href="https://demo.timvantapster.nl/">Tim van Tapster</a>.**\
-Eén beeld zegt meer dan duizend woorden. Door een afbeelding toe te voegen, kun je makkelijk laten zien wat er aan de hand is.\
-\
-\
+
 Na deze stappen te hebben ingevuld druk je op de groene knop 'Submit new issue', waarna de melding is gedaan.
 
