@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       issues: write
+      actions: write
     steps:
       - name: Move issue to frontend
         uses: actions/github-script@v7 
