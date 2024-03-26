@@ -20,3 +20,6 @@ projects: ["orgs/tapsterbv/projects/4"]
 3. Et cetera
 
 ## **Voeg screenshots toe**
+Met Windows een screenshot maken:
+Gebruik de toetsencombinatie: Windows + Shift + s.
+Hierna kan je het gebied selecteren wat je gescreenshot wilt hebben.
