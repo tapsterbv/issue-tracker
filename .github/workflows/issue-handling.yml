@@ -34,7 +34,7 @@ jobs:
         run: |
           echo $NUMBER
           echo $DST_REPO
-          gh issue transfer "$NUMBER" tapsterbv/bambooims-frontend
+          gh issue transfer $NUMBER tapsterbv/bambooims-frontend
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
