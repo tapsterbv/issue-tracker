@@ -21,6 +21,6 @@ jobs:
           script: |
             github.rest.issues.update({
               owner: context.repo.owner,
-              repo: context.repo.repo,
+              repo: $DST_REPO,
               issue_number: context.issue.number,
             })
