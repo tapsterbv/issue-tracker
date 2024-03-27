@@ -20,6 +20,6 @@ jobs:
           script: |
             github.rest.issues.create({
               owner: context.repo.owner,
-              repo: 'bambooims-frontend',
+              repo: 'tapsterbv/bambooims-frontend',
               title: 'test',
             })
