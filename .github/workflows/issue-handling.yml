@@ -20,6 +20,6 @@ jobs:
           script: |
             github.rest.issues.update({
               owner: context.repo.owner,
-              repo: 'https://github.com/tapsterbv/bambooims-frontend',
+              repo: 'bambooims-frontend',
               issue_number: context.issue.number,
             })
