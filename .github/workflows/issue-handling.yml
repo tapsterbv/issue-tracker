@@ -32,10 +32,8 @@ jobs:
     steps:
       - name: Move issue to frontend
         run: |
-          echo $NUMBER
-          echo $DST_REPO
           gh repo list
-          gh issue transfer $NUMBER tapsterbv/bambooims-frontend
+          gh issue transfer $NUMBER issue-tracker
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
