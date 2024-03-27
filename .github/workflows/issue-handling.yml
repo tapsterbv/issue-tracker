@@ -18,7 +18,7 @@ jobs:
           script: |
             const query = `
               query {
-                repository(owner:"tapsterbv", name:"bambooims-frontend") {
+                repository(owner:"tapsterbv", name:"issue-tracker") {
                   id
                 }
               }`;
