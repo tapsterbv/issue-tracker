@@ -4,8 +4,6 @@ on:
     types:
       - opened
       - labeled
-      - edited
-      - unlabeled
 jobs:
   frontend:
     if: github.event.label.name == 'frontend'
