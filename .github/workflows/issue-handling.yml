@@ -21,7 +21,5 @@ jobs:
             github.rest.issues.create({
               owner: context.repo.owner,
               repo: 'issue-tracker',
-              title: context.repo.title,
-              body: context.repo.body,
-              labels: context.repo.labels,
+              title: 'test',
             })
