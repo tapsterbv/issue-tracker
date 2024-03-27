@@ -18,14 +18,16 @@ jobs:
           github-token: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
           script: |
             const query = `
-              query {
-                repository(owner:"tapsterbv", name:"issue-tracker") {
-                  id
+              mutation AddComment {
+                addComment(input:{subjectId: "I_kwDOLkAh0M6DSeXZ", body: "Test"}) {
+                  subject {
+                    id
+                  }
+                  subject {
+                    id
+                  }
                 }
               }`;
             const response = await github.graphql(query);
-            return response.repository.id;
         env:
           GH_GRAPHQL_TOKEN: ${{ secrets.WORKFLOW_API_KEY_GITHUB }}
-      - name: Output Repository ID
-        run: echo "The Repository ID is ${{ steps.fetch_data.outputs.result }}"
