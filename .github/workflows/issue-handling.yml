@@ -16,10 +16,10 @@ jobs:
       - name: Move issue to frontend
         uses: actions/github-script@v7 
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          github-token: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
           script: |
             github.rest.issues.create({
               owner: context.repo.owner,
-              repo: 'tapsterbv/bambooims-frontend',
+              repo: 'bambooims-frontend',
               title: 'test',
             })
