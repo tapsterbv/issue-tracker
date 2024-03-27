@@ -12,6 +12,7 @@ jobs:
       issues: write
     steps:
       - name: Move issue to frontend
+        id: fetch-data
         uses: actions/github-script@v7 
         with:
           github-token: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
@@ -26,3 +27,5 @@ jobs:
             return response.repository.id;
         env:
           GH_GRAPHQL_TOKEN: ${{ secrets.WORKFLOW_API_KEY_GITHUB }}
+      - name: Output Repository ID
+        run: echo "The Repository ID is ${{ steps.fetch_data.outputs.result }}"
