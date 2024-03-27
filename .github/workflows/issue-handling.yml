@@ -16,9 +16,13 @@ jobs:
         with:
           github-token: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
           script: |
-            github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: 'bambooims-frontend',
-              title: github.event.issue.title,
-              body: github.event.issue.body,
-            })
+            const query = `
+              query {
+                repository(owner:"tapsterbv", name:"bambooims-frontend") {
+                  id
+                }
+              }`;
+            const response = await github.graphql(query);
+            return response.repository.id;
+        env:
+          GH_GRAPHQL_TOKEN: ${{ secrets.WORKFLOW_API_KEY_GITHUB }}
