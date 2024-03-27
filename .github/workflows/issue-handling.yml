@@ -21,6 +21,6 @@ jobs:
             github.rest.issues.create({
               owner: context.repo.owner,
               repo: 'bambooims-frontend',
-              title: context.repo.title,
-              body: context.repo.body,
+              title: github.event.issue.title,
+              body: github.event.issue.body,
             })
