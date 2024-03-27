@@ -24,22 +24,3 @@ jobs:
               repo: context.repo.repo,
               issue_number: context.issue.number,
             })
-  frontend-gh:
-    if: github.event.label.name == 'frontend'
-    runs-on: ubuntu-latest
-    permissions:
-      issues: write
-    steps:
-      - name: Move issue to frontend
-        run: |
-          gh repo list
-          gh issue transfer $NUMBER $DST_REPO
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-          NUMBER: ${{ github.event.issue.number }}
-          DST_REPO: tapsterbv/bambooims-frontend
-          BODY: >
-            Dit issue is verplaatst naar de frontend.  
-            :sparkles: Het gaat dus opgepakt worden! :sparkles:
-
