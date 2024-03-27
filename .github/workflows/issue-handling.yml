@@ -17,7 +17,7 @@ jobs:
         with:
           github-token: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
           script: |
-            const query = `
+            return github.graphql(`
               query FindMutationInfo {
               	issueRepo: repository(owner:"tapsterbv", name:"issue-tracker") {
                   issue (number: 2) {
@@ -27,8 +27,5 @@ jobs:
                 dstRepo: repository(owner: "tapsterbv", name:"bambooims-frontend") {
                   id
                 }
-              }`;
-            const response = await github.graphql(query);
-            echo response;
-        env:
-          GH_GRAPHQL_TOKEN: ${{ secrets.WORKFLOW_API_KEY_GITHUB }}
+              }`)
+      - run: echo '${{steps.fetch-data.outputs.result}}'
