@@ -33,7 +33,7 @@ jobs:
       - name: Move issue to frontend
         run: |
           gh repo list
-          gh issue transfer $NUMBER issue-tracker
+          gh issue transfer $NUMBER tapsterbv/issue-tracker
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
