@@ -18,16 +18,17 @@ jobs:
           github-token: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
           script: |
             const query = `
-              mutation AddComment {
-                addComment(input:{subjectId: "I_kwDOLkAh0M6DSeXZ", body: "Test"}) {
-                  subject {
-                    id
-                  }
-                  subject {
+              query FindMutationInfo {
+              	issueRepo: repository(owner:"tapsterbv", name:"issue-tracker") {
+                  issue (number: 2) {
                     id
                   }
                 }
+                dstRepo: repository(owner: "tapsterbv", name:"bambooims-frontend") {
+                  id
+                }
               }`;
             const response = await github.graphql(query);
+            echo response;
         env:
           GH_GRAPHQL_TOKEN: ${{ secrets.WORKFLOW_API_KEY_GITHUB }}
