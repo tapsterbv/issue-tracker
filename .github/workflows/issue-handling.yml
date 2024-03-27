@@ -11,7 +11,7 @@ jobs:
     permissions:
       issues: write
     steps:
-      - name: Move issue to frontend
+      - name: Fetch data
         id: fetch-data
         uses: actions/github-script@v7 
         with:
@@ -28,4 +28,5 @@ jobs:
                   id
                 }
               }`)
-      - run: echo '${{steps.fetch-data.outputs.result}}'
+      - name: Mutate issue
+        run: echo '${{steps.fetch-data.outputs.result}}'
