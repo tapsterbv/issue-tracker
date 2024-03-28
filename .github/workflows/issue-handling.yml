@@ -32,6 +32,7 @@ jobs:
           issue_repo: "issue-tracker"
           dst_repo: "bambooims-frontend"
       - name: Add information from the issue
+        uses: octokit/graphql-action@v2.x 
         with:
           GITHUB_TOKEN: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
           query: |
