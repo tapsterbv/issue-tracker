@@ -32,7 +32,7 @@ jobs:
           dst_repo: "bambooims-frontend"
       - name: Echo query data
         id: echo-output
-        run: echo "${{ fromJson(steps.fetch-data.outputs.data).issueRepo.issue }}"
+        run: echo "${{ fromJson(steps.fetch-data.outputs.data).issueRepo.issue.id }}"
       - name: Mutate issue
         uses: octokit/graphql-action@v2.x
         env: 
