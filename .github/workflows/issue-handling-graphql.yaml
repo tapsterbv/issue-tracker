@@ -1,0 +1,64 @@
+name: Issue handling
+on:
+  issues:
+    types:
+      - opened
+      - labeled
+jobs:
+  collect-data:
+    if: github.event.label.name == 'frontend'
+    runs-on: ubuntu-latest
+    outputs:
+      issue_id: ${{ steps.fetch-data.outputs.issue_id }}
+      dst_repo: ${{ steps.fetch-data.outputs.dst_repo }}
+      results_object: ${{ steps.fetch-data.outputs.results }}
+    permissions:
+      issues: write
+    steps:
+      - name: Fetch data
+        id: fetch-data
+        uses: actions/github-script@v7 
+        with:
+          github-token: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
+          script: |
+            echo "::set-output name=results_object::github.graphql(`
+              query FindMutationInfo {
+              	issueRepo: repository(owner:"tapsterbv", name:"issue-tracker") {
+                  issue (number: 2) {
+                    id
+                  }
+                }
+                dstRepo: repository(owner: "tapsterbv", name:"bambooims-frontend") {
+                  id
+                }
+              }`)
+  echo-data:
+    if: github.event.label.name == 'frontend'
+    needs: collect-data
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Echo query data
+        env: 
+          ISSUE_ID: needs.fetch-data.outputs.issue_id
+          DST_REPO: needs.fetch-data.outputs.dst_repo
+          RESULTS: needs.fetch-data.outputs.results_object
+        run: |
+          echo ${{ env.ISSUE_ID }}
+          echo ${{ env.DST_REPO }}
+          echo ${{ env.RESULTS }}
+      - name: Mutate issue
+        uses: actions/github-script@v7 
+        with:
+          github-token: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
+          script: |
+            return github.graphql(`
+              mutation TransferIssue {
+                transferIssue(input: {issueId: ${{steps.fetch-data.outputs.result.issueRepo.issue.id}}, repositoryId: ${{steps.fetch-data.outputs.result.dstRepo.id}}}) {
+                  issue {
+                    url
+                    number
+                  }
+                }
+              }`)
