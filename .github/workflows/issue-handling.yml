@@ -33,11 +33,11 @@ jobs:
       - name: Echo query data
         run: |
           echo ${{steps.fetch-data.outputs.data}}
-          echo ${{steps.fetch-data.outputs.result}}
+          echo ${{steps.fetch-data.outputs.data.dstRepo.id}}
       - name: Mutate issue
         uses: octokit/graphql-action@v2.x
         with:
-          github-token: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
+          GITHUB_TOKEN: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
           query: |
             mutation TransferIssue ($issueId: ID!, $repositoryId: ID!) {
               transferIssue(input: {issueId: $issueId, repositoryId: $repositoryId}) {
