@@ -37,12 +37,12 @@ jobs:
           GITHUB_TOKEN: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
           query: |
             mutation TransferIssue ($issueId: ID!, $repositoryId: ID!) {
-              transferIssue(input: {issueId: $issueId, repositoryId: $repositoryId}) {
+              transferIssue(input: {issueId: "$issueId", repositoryId: "$repositoryId"}) {
                 issue {
                   url
                   number
                 }
               }
             }
-          issueId: "${{ fromJson(steps.fetch-data.outputs.data).issueRepo.issue.id }}"
-          repositoryId: "${{ fromJson(steps.fetch-data.outputs.data).dstRepo.id }}"
+          issueId: ${{ fromJson(steps.fetch-data.outputs.data).issueRepo.issue.id }}
+          repositoryId: ${{ fromJson(steps.fetch-data.outputs.data).dstRepo.id }}
