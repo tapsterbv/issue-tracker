@@ -17,7 +17,7 @@ jobs:
         with:
           GITHUB_TOKEN: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
           query: |
-            query FindMutationInfo($issue_id: String!, $owner:String!,$issue_repo:String!,$dst_repo:String!) {
+            query FindMutationInfo($issue_id: Int!, $owner:String!,$issue_repo:String!,$dst_repo:String!) {
               issueRepo: repository(owner:$owner, name:$issue_repo) {
                 issue (number: $issue_id) {
                   id
