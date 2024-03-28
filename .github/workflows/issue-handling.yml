@@ -47,5 +47,5 @@ jobs:
                   number
                 }
               }
-          issueId: ""
-          repositoryId: ""
+          issueId: "${{ fromJson(steps.fetch-data.outputs.data).issueRepo.issue.id }}"
+          repositoryId: "${{ fromJson(steps.fetch-data.outputs.data).dstRepo.id }}"
