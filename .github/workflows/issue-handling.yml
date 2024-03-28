@@ -33,7 +33,6 @@ jobs:
       - name: Echo query data
         run: |
           echo ${{steps.fetch-data.outputs.data}}
-          echo ${{steps.fetch-data.outputs.data.dstRepo.id}}
       - name: Mutate issue
         uses: octokit/graphql-action@v2.x
         with:
