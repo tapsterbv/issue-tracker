@@ -31,7 +31,7 @@ jobs:
           issue_repo: "issue-tracker"
           dst_repo: "bambooims-frontend"
       - name: Echo query data
-        run: echo "${{steps.fetch-data.outputs.data}}"
+        run: echo "${{steps.fetch-data.outputs.data.dstRepo}}"
       - name: Mutate issue
         uses: octokit/graphql-action@v2.x
         with:
