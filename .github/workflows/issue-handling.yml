@@ -30,8 +30,16 @@ jobs:
           owner: "tapsterbv"
           issue_repo: "issue-tracker"
           dst_repo: "bambooims-frontend"
+      - name: Proces query data
+        run: |
+          content=`${{steps.fetch-data.outputs.data.dstRepo}}`
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          echo "::set-output name=packageJson::$content"
       - name: Echo query data
-        run: echo "${{steps.fetch-data.outputs.data.dstRepo}}"
+        run: |
+          echo "${{fromJson(steps.set_var.outputs.packageJson).dstRepo.id}}"
       - name: Mutate issue
         uses: octokit/graphql-action@v2.x
         with:
