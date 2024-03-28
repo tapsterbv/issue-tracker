@@ -31,6 +31,9 @@ jobs:
           owner: "tapsterbv"
           issue_repo: "issue-tracker"
           dst_repo: "bambooims-frontend"
+      - name: Debug fetched data
+        run: |
+          echo "Fetched Data: ${{ toJson(steps.fetch-data.outputs.data) }}"
       - name: Mutate issue
         uses: octokit/graphql-action@v2.x
         env:
@@ -47,5 +50,5 @@ jobs:
                 }
               }
             }
-          issueId: ${{ fromJson(steps.fetch-data.outputs.data).issueRepo.issue.id }}
-          repositoryId: ${{ fromJson(steps.fetch-data.outputs.data).dstRepo.id }}
+          issueId: ${{ env.ISSUE_ID }}
+          repositoryId: ${{ env.REPOSITORY_ID }}
