@@ -17,9 +17,9 @@ jobs:
         with:
           GITHUB_TOKEN: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
           query: |
-            query FindMutationInfo($owner:String!,$issue_repo:String!,$dst_repo:String!) {
+            query FindMutationInfo($issue_id: string, $owner:String!,$issue_repo:String!,$dst_repo:String!) {
               issueRepo: repository(owner:$owner, name:$issue_repo) {
-                issue (number: 2) {
+                issue (number: $issue_id) {
                   id
                 }
               }
@@ -27,6 +27,7 @@ jobs:
                 id
               }
             }
+          issue_id: ${{ github.event.issue.number }}
           owner: "tapsterbv"
           issue_repo: "issue-tracker"
           dst_repo: "bambooims-frontend"
