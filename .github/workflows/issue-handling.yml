@@ -33,7 +33,7 @@ jobs:
       - name: Echo query data
         id: echo-output
         run: |
-          content=`cat ${{ steps.fetch-data.output.data }}`
+          content=`cat steps.fetch-data.outputs.data`
           # the following lines are only required for multi line json
           content="${content//'%'/'%25'}"
           content="${content//$'\n'/'%0A'}"
