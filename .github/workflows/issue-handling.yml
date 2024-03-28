@@ -39,7 +39,7 @@ jobs:
         with:
           GITHUB_TOKEN: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
           query: |
-            mutation TransferIssue(issueId: String!, repositoryId: String!) {
+            mutation TransferIssue($issueId: String!, $repositoryId: String!) {
               transferIssue(input: {issueId: $issueId, repositoryId: $repositoryId}) {
                 issue {
                   url
