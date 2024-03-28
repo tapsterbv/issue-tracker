@@ -31,6 +31,19 @@ jobs:
           owner: "tapsterbv"
           issue_repo: "issue-tracker"
           dst_repo: "bambooims-frontend"
+      - name: Add information from the issue
+        with:
+          GITHUB_TOKEN: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
+          query: |
+            mutation AddComment ($subject_id: ID!, $body: String!) {
+              addComment(input:{subjectId: $subject_id, body: $body}) {
+                subject {
+                  id
+                }
+              }
+            }
+          subject_id: ${{ fromJson(steps.fetch-data.outputs.data).issueRepo.issue.id }}
+          body: 'Dit issue is afkomstig uit de Issue-tracker.\r\n Gemeld door: ${{ github.event.issue.author }}\r\n Gemeld op: ${{ github.event.issue.createdAt }}'
       - name: Mutate issue
         uses: octokit/graphql-action@v2.x
         with:
