@@ -15,7 +15,7 @@ jobs:
         id: fetch-data
         uses: octokit/graphql-action@v2.x 
         with:
-          github-token: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
+          GITHUB_TOKEN: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
           query: |
             query FindMutationInfo($owner:String!,$issue_repo:String!,$dst_repo:String!) {
               issueRepo: repository(owner:$owner, name:$issue_repo) {
