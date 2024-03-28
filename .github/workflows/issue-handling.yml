@@ -30,8 +30,8 @@ jobs:
               }`)
       - name: Echo query data
         run: |
-          echo ${{steps.fetch-data.outputs.result.issueRepo.issue.id}}
-          echo ${{steps.fetch-data.outputs.result.dstRepo.id}}
+          echo ${{steps.fetch-data.outputs.result}}
+          echo ${{steps.fetch-data.outputs.result}}
       - name: Mutate issue
         uses: actions/github-script@v7 
         with:
