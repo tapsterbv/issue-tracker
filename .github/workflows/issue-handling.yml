@@ -33,9 +33,6 @@ jobs:
           dst_repo: "bambooims-frontend"
       - name: Mutate issue
         uses: octokit/graphql-action@v2.x
-        env:
-          ISSUE_ID: ${{ fromJson(steps.fetch-data.outputs.data).issueRepo.issue.id }}
-          REPOSITORY_ID: ${{ fromJson(steps.fetch-data.outputs.data).dstRepo.id }}
         with:
           GITHUB_TOKEN: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
           query: |
@@ -48,4 +45,4 @@ jobs:
               }
             }
           issueId: ${{ fromJson(steps.fetch-data.outputs.data).issueRepo.issue.id }}
-          repositoryId: ${{ env.REPOSITORY_ID }}
+          repositoryId: ${{ fromJson(steps.fetch-data.outputs.data).dstRepo.id }}
