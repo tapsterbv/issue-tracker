@@ -29,6 +29,9 @@ jobs:
                 }
               }`)
       - name: Echo query data
+        env: 
+          ISSUE_ID: needs.fetch-data.outputs.issue_id
+          DST_REPO: needs.fetch-data.outputs.dst_repo
         run: |
           echo ${{steps.fetch-data.outputs.result}}
           echo ${{steps.fetch-data.outputs.issueRepo}}
