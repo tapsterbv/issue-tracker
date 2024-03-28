@@ -13,39 +13,38 @@ jobs:
     steps:
       - name: Fetch data
         id: fetch-data
-        uses: actions/github-script@v7 
+        uses: octokit/graphql-action@v2.x 
         with:
           github-token: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
-          script: |
-            return github.graphql(`
-              query FindMutationInfo {
-              	issueRepo: repository(owner:"tapsterbv", name:"issue-tracker") {
-                  issue (number: 2) {
-                    id
-                  }
-                }
-                dstRepo: repository(owner: "tapsterbv", name:"bambooims-frontend") {
+          query: |
+            query FindMutationInfo($owner:String!,$issue_repo:String!,$dst_repo:String!) {
+              issueRepo: repository(owner:$owner, name:$issue_repo) {
+                issue (number: 2) {
                   id
                 }
-              }`)
+              }
+              dstRepo: repository(owner: $owner, name:$dst_repo) {
+                id
+              }
+            }
+          owner: "tapsterbv"
+          issue_repo: "issue-tracker"
+          dst_repo: "bambooims-frontend"
       - name: Echo query data
-        env: 
-          ISSUE_ID: needs.fetch-data.outputs.issue_id
-          DST_REPO: needs.fetch-data.outputs.dst_repo
         run: |
+          echo ${{steps.fetch-data.outputs.data}}
           echo ${{steps.fetch-data.outputs.result}}
-          echo ${{steps.fetch-data.outputs.issueRepo}}
       - name: Mutate issue
-        uses: actions/github-script@v7 
+        uses: octokit/graphql-action@v2.x
         with:
           github-token: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
-          script: |
-            return github.graphql(`
-              mutation TransferIssue {
-                transferIssue(input: {issueId: ${{steps.fetch-data.outputs.result.issueRepo.issue.id}}, repositoryId: ${{steps.fetch-data.outputs.result.dstRepo.id}}}) {
-                  issue {
-                    url
-                    number
-                  }
+          query: |
+            mutation TransferIssue ($issueId: ID!, $repositoryId: ID!) {
+              transferIssue(input: {issueId: $issueId, repositoryId: $repositoryId}) {
+                issue {
+                  url
+                  number
                 }
-              }`)
+              }
+          issueId: ""
+          repositoryId: ""
