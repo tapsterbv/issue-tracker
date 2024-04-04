@@ -9,41 +9,6 @@ jobs:
     if: github.event.label.name == 'declined'
     runs-on: ubuntu-latest
     steps:
-      - name: Close declined issue
-        id: close-declined-issue
-        uses: octokit/graphql-action@v2.x 
-        with:
-          GITHUB_TOKEN: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
-          query: |
-            query($number: Int!) {
-              organization(login: ${{ github.event.org.login }}){
-                projectV2(number: $number) {
-                  id
-                  fields(first:20) {
-                    nodes {
-                      ... on ProjectV2Field {
-                        id
-                        name
-                      }
-                      ... on ProjectV2SingleSelectField {
-                        id
-                        name
-                        options {
-                          id
-                          name
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          ORGANIZATION: ${{ github.event.issue.org.login }}
-          PROJECT_NUMBER: 4
-        env:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
-      - name: Echo data
-        run: | 
-          echo ${{ steps.close-declined-issue.outputs.data }}
-        env:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Close issue
+        run: |
+          gh pr close ${{ github.event.number }}
