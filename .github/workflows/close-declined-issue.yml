@@ -12,3 +12,5 @@ jobs:
       - name: Close issue
         run: |
           gh pr close ${{ github.event.issue.number }}
+        env:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
