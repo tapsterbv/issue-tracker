@@ -13,20 +13,16 @@ jobs:
         uses: octokit/graphql-action@v2.x
         with:
           graphql: |
-            query FetchProjectColumns(project_number: Int!, $repo_owner: String!) {
-              organization (login: $repo_owner) {
-                project(number: $projectNumber) {
-                  columns(first: 100) {
-                    nodes {
-                      id
-                      name
-                    }
-                  }
+            query GetIssueData {
+            	organization(login: "tapsterbv") {
+                project(number: 4) {
+                  id
+                }
+                projectV2(number: 4) {
+                  id
                 }
               }
             }
-          repo_owner: "tapsterbv"
-          project_number: 4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Change Status
@@ -34,4 +30,4 @@ jobs:
           echo ${{ env.NEWCOLUMNID }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NEWCOLUMNID: ${{ fromJson(steps.fetch-columns.outputs.data.repository.project.columns.nodes[?(@.name == 'Todo')].id) }}
+          NEWCOLUMNID: ${{ fromJson(steps.fetch-columns.outputs.data) }}
