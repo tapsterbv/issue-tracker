@@ -11,4 +11,6 @@ jobs:
     steps:
       - name: Close issue
         run: |
-          gh pr close ${{ github.event.number }}
+          gh pr close ${{ env.PR-NUMBER }}
+        env:
+          PR-NUMBER: ${{ github.event.issue.number }}
