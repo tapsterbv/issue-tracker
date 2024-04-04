@@ -1,0 +1,45 @@
+name: Close declined issue
+on:
+  issues:
+    types:
+      - opened
+      - labeled
+jobs:
+  close-declined-issue:
+    if: github.event.label.name == 'declined'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close declined issue
+        id: close-declined-issue
+        uses: octokit/graphql-action@v2.x 
+        with:
+          query: |
+            query($org: String!, $number: Int!) {
+              organization(login: $org){
+                projectV2(number: $number) {
+                  id
+                  fields(first:20) {
+                    nodes {
+                      ... on ProjectV2Field {
+                        id
+                        name
+                      }
+                      ... on ProjectV2SingleSelectField {
+                        id
+                        name
+                        options {
+                          id
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          GH_TOKEN: ${{ steps.generate-token.outputs.token }}
+          ORGANIZATION: tapsterbv
+          PROJECT_NUMBER: 4
+      - name: Echo data
+        run: | 
+          echo ${{ steps.close-declined-issue.outputs.data }}
