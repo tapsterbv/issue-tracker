@@ -13,6 +13,7 @@ jobs:
         id: close-declined-issue
         uses: octokit/graphql-action@v2.x 
         with:
+          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
           query: |
             query($org: String!, $number: Int!) {
               organization(login: $org){
@@ -37,7 +38,6 @@ jobs:
                 }
               }
             }
-          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
           ORGANIZATION: tapsterbv
           PROJECT_NUMBER: 4
         env:
