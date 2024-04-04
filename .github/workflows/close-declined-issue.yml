@@ -11,9 +11,7 @@ jobs:
     steps:
       - name: Close issue
         run: |
-          echo ${{ github.workspace }}
-          echo ${{ toJson(github.issue) }}
-          echo ${{ github.issue.repository }}
+          gh issue close https://github.com/${{ env.REPO }}/issues/${{ github.event.issue.number }}
         env:
-          REPO: "tapsterbv/issue-tracker"
+          REPO: ${{ github.repository_owner }}/${{ github.repository }}
           GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
