@@ -12,8 +12,8 @@ jobs:
       - name: Close issue
         run: |
           echo ${{ github.workspace }}
-          echo ${{ github.issue.repo }}
-          echo ${{ github.issue.owner }}
+          echo ${{ toJson(github.issue) }}
+          echo ${{ github.issue.repository }}
         env:
           REPO: "tapsterbv/issue-tracker"
           GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
