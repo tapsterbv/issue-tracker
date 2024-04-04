@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Close issue
         run: |
-          echo ${{ fromJson(github.event) }}
+          echo ${{ fromJson(github.event.issue) }}
           gh pr close ${{ github.event.issue.number }} -R  ${{ github.event.issue.repo }}
         env:
           GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
