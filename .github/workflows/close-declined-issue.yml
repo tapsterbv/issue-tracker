@@ -8,22 +8,30 @@ jobs:
     if: github.event.label.name == 'declined'
     runs-on: ubuntu-latest
     steps:
-      - name: Update Issue Status
+      - name: Fetch Project Columns
+        id: fetch-columns
         uses: octokit/graphql-action@v2.x
         with:
           graphql: |
-            mutation ChangeLane($project_number: Int!, $issue_id: ID!, $project_column_name: String!, $project_card_note: String!) {
-              moveProjectCard(input: {projectCardId: $issue_id, columnId: $project_column_name, note: $project_card_note}) {
-                cardEdge {
-                  node {
-                    id
+            query FetchProjectColumns(project_number: Int!, $repo_owner: String!) {
+              organization (login: $repo_owner) {
+                project(number: $projectNumber) {
+                  columns(first: 100) {
+                    nodes {
+                      id
+                      name
+                    }
                   }
                 }
               }
             }
+          repo_owner: "tapsterbv"
           project_number: 4
-          issue_id: ${{ github.event.issue.node_id }}
-          project_column_name: "Todo"
-          project_card_note: "Issue moved to Todo lane"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Change Status
+        run: |
+          echo ${{ env.NEWCOLUMNID }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NEWCOLUMNID: ${{ fromJson(steps.fetch-columns.outputs.data.repository.project.columns.nodes[?(@.name == 'Todo')].id) }}
