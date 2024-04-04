@@ -38,7 +38,7 @@ jobs:
                 }
               }
             }
-          ORGANIZATION: "tapsterbv"
+          ORGANIZATION: ${{ github.event.org.login }}
           PROJECT_NUMBER: 4
         env:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
