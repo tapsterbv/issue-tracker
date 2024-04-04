@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Close issue
         run: |
-          gh issue close ${{ github.event.issue.number }}
+          gh issue close https://github.com/tapsterbv/issue-tracker/issues/${{ github.event.issue.number }}
         env:
           GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         working-directory: ${{ github.workspace }}
