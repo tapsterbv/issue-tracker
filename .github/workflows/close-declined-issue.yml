@@ -13,7 +13,7 @@ jobs:
         id: close-declined-issue
         uses: octokit/graphql-action@v2.x 
         with:
-          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
+          GITHUB_TOKEN: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
           query: |
             query($org: String!, $number: Int!) {
               organization(login: $org){
