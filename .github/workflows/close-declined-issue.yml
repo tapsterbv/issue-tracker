@@ -38,7 +38,7 @@ jobs:
                 }
               }
             }
-          ORGANIZATION: ${{ github.event.issue.number }}
+          ORGANIZATION: ${{ github.event.issue.org.login }}
           PROJECT_NUMBER: 4
         env:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
