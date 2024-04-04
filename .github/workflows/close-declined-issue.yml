@@ -15,8 +15,8 @@ jobs:
         with:
           GITHUB_TOKEN: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
           query: |
-            query($org: String!, $number: Int!) {
-              organization(login: $org){
+            query($number: Int!) {
+              organization(login: ${{ github.event.org.login }}){
                 projectV2(number: $number) {
                   id
                   fields(first:20) {
@@ -38,7 +38,6 @@ jobs:
                 }
               }
             }
-          ORGANIZATION: ${{ github.event.org.login }}
           PROJECT_NUMBER: 4
         env:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
