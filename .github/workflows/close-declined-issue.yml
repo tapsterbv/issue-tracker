@@ -15,7 +15,7 @@ jobs:
         with:
           GITHUB_TOKEN: ${{secrets.WORKFLOW_API_KEY_GITHUB}}
           query: |
-            query($org: "tapsterbv", $number: 4) {
+            query($org: String!, $number: Int!) {
               organization(login: $org){
                 projectV2(number: $number) {
                   id
