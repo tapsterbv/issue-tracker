@@ -12,8 +12,8 @@ jobs:
         uses: octokit/graphql-action@v2.x
         with:
           graphql: |
-            mutation ChangeLane($project-number: Int!, $issue-id: ID!, $project-column-name: String!, $project-card-note: String!) {
-              moveProjectCard(input: {projectCardId: $issue-id, columnId: $project-column-name, note: $project-card-note}) {
+            mutation ChangeLane($project_number: Int!, $issue_id: ID!, $project_column_name: String!, $project_card_note: String!) {
+              moveProjectCard(input: {projectCardId: $issue_id, columnId: $project_column_name, note: $project_card_note}) {
                 cardEdge {
                   node {
                     id
@@ -21,9 +21,9 @@ jobs:
                 }
               }
             }
-          project-number: 4
-          issue-id: ${{ github.event.issue.node_id }}
-          project-column-name: "Todo"
-          project-card-note: "Issue moved to Todo lane"
+          project_number: 4
+          issue_id: ${{ github.event.issue.node_id }}
+          project_column_name: "Todo"
+          project_card_note: "Issue moved to Todo lane"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
