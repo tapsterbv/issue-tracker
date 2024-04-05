@@ -8,23 +8,6 @@ jobs:
     if: github.event.label.name == 'declined'
     runs-on: ubuntu-latest
     steps:
-      - name: Fetch Project Columns
-        id: fetch-columns
-        uses: octokit/graphql-action@v2.x
-        with:
-          graphql: |
-            query GetIssueData {
-              organization(login: "${{ github.event.organization.login }}") {
-                project(number: 4) {
-                  id
-                }
-                projectV2(number: 4) {
-                  id
-                }
-              }
-            }
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Fetch project information
         uses: actions/github-script@v7
         id: myscript
