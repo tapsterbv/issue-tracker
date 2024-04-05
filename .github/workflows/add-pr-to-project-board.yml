@@ -1,0 +1,18 @@
+name: Add PR to project board
+on:
+  pull_request_target:
+    types:
+      [edited, ready_for_review]
+jobs:
+  add-pr-to-project-board:
+    if: github.event.type == 'ready_for_review'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign Pull Request to Project
+        uses: srggrs/assign-one-project-github-action@1.3.1
+        if: ${{ github.event_name == 'pull_request_target' }}
+        with:
+          project: 'https://github.com/orgs/tapsterbv/projects/4'
+          column_name: 'To be reviewed'
+        env:
+          GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
