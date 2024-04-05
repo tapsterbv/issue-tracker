@@ -9,21 +9,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Run gh get projects
-        id: gh-projects
+      - name: Remove issue from lane
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DONE_COLUMN_ID: 98236657
           CARD_ID: I_kwDOLkAh0M6EmwE
         run: |
           gh api \
-            --method PATCH \
-            -H "Accept: application/vnd.github+json" \
-            -H "Authorization: token ${{ secrets.WORKFLOW_API_KEY_GITHUB }}" \
+            --method DELETE \
+            -H "Accept: application/vnd.github.inertia-preview+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
-            /projects/columns/cards/${{ env.CARD_ID }}/moves \
-            -F column_id=${{ env.DONE_COLUMN_ID }} \
-            -f position='top' 
+            -H "Authorization: token ${{ secrets.WORKFLOW_API_KEY_GITHUB }}" \
+            /projects/columns/cards/${{ env.CARD_ID }}
+      - name: Add issue to new lane
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DONE_COLUMN_ID: 98236657
+          CARD_ID: I_kwDOLkAh0M6EmwE
+        run: |
+          gh api \
+            --method POST \
+            -H "Accept: application/vnd.github.inertia-preview+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            -H "Authorization: token ${{ secrets.WORKFLOW_API_KEY_GITHUB }}" \
+            /projects/columns/${{ env.DONE_COLUMN_ID }}/cards \
+            -F content_id=${{ env.CARD_ID }}
       - name: Change Status
         run: |
           echo ${{ steps.gh-projects.outputs.data }}
