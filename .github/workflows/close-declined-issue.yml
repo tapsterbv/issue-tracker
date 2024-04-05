@@ -8,7 +8,14 @@ jobs:
     if: github.event.label.name == 'declined'
     runs-on: ubuntu-latest
     steps:
-
+      - name: Get issue
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            /repos/tapsterbv/issue-tracker/issues/21
       - name: Remove issue from lane
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
