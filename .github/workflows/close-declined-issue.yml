@@ -21,6 +21,4 @@ jobs:
             /orgs/tapsterbv/projects
       - name: Change Status
         run: |
-          echo ${{ env.NEWCOLUMNID }}
-        env:
-          NEWCOLUMNID: ${{ fromJson(steps.gh-projects.outputs.data) }}
+          echo ${{ steps.gh-projects.outputs.data }}
