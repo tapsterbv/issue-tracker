@@ -16,7 +16,7 @@ jobs:
         run: |
           gh api \
             -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer ${{ secret.WORKFLOW_API_KEY_GITHUB }}" \
+            -H "Authorization: Bearer ${{ secrets.WORKFLOW_API_KEY_GITHUB }}" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             /orgs/tapsterbv/projects
       - name: Change Status
