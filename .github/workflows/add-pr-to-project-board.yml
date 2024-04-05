@@ -5,7 +5,8 @@ on:
       [edited, ready_for_review]
 jobs:
   add-pr-to-project-board:
-    if: github.event.type == 'ready_for_review'
+    if: |
+      github.event.type == 'ready_for_review'
     runs-on: ubuntu-latest
     steps:
       - name: Assign Pull Request to Project
