@@ -25,9 +25,21 @@ jobs:
             }
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Fetch project information
+        uses: actions/github-script@v7
+        id: myscript
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          result-encoding: string
+          script: |
+            github.rest.projects({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            })
       - name: Change Status
         run: |
           echo ${{ env.NEWCOLUMNID }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NEWCOLUMNID: ${{ fromJson(steps.fetch-columns.outputs.data) }}
+          NEWCOLUMNID: ${{ fromJson(steps.myscript.outputs.data) }}
