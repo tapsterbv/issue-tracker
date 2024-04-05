@@ -16,7 +16,7 @@ jobs:
         with:
           result-encoding: string
           script: |
-            github.rest.projects({
+            github.rest.projects.get({
               owner: context.repo.owner,
               repo: context.repo.repo,
             })
